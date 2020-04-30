@@ -1,0 +1,11 @@
+var productModel = require('../models/product-model');
+module.exports.index = async function(req,res){
+	var page = parseInt(req.query.page)||1;
+	var perPage = 8;
+	var start = (page-1)*perPage;
+	var end = page*perPage;
+	var products = await productModel.find();
+	res.render('products/product',{
+		products: products.slice(start, end)
+	});
+} 
