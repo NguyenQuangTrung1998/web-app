@@ -1,0 +1,21 @@
+extends ../layouts/page
+block page
+	h1.ml-4 Login
+	.container
+		.row.d-flex.justify-content-end
+			a.mr-3.btn.btn-primary(href="/users/create") sign up
+	.container
+		.row
+			.col-sm-12.col-md-12
+				if errors
+					each err in errors
+						alert.alert-danger=err
+				form(action="/auth" method="post")
+					.form-group
+						label(for="email") email
+						input#email.form-control(type="email" name="email" value=values?values.email : '')
+					.form-group
+						label(for="password") password
+						input#password.form-control(type="password" name="password" value=values?values.password :'')
+					.form-group
+						button.btn.btn-primary login

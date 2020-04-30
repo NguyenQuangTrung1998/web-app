@@ -1,0 +1,24 @@
+extends ../layouts/layout
+block content
+	.container.mt-4
+		table.mt-2(style="width:100%;")
+			tr(style="border-top:solid 1px black;")
+				th avatar
+				th name
+				th email
+				th phone
+				th action
+			each user in users
+				tr(style="border-top:solid 1px black;")
+					td
+						img.rounded-circle(src=user.avatar,width="64")
+					td=user.name
+					td=user.email
+					td=user.phone
+					td
+						a.btn.btn-light(href="/users/"+user.id) action
+	.container
+		.row.mt-4
+			a.btn.btn-primary(href="/auth") back
+
+

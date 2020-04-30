@@ -1,0 +1,26 @@
+html
+	head
+		<link rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	body
+		nav.navbar.navbar-expand-lg.navbar-light.bg-light
+			a.navbar-brand(href='/auth') dev-trung
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			#navbarSupportedContent.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto
+					li.nav-item.active
+						a.nav-link(href='/') Home 
+							span.sr-only (current)
+					li.nav-item
+						a.nav-link(href='/products/product') products
+				form.form-inline.my-2.my-lg-0(action="/users/search" method="get")
+					input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search' name="q")
+					button.btn.btn-primary.my-2.my-sm-0 Search
+		.container
+			.row.d-fex.justify-content-end.mr-3.mt-4
+				if user
+					span=user.name
+
+
+		.container
+			block content

@@ -1,0 +1,31 @@
+extends ../layouts/page
+block page
+	h1 Create acount
+
+	.container
+		.row
+			.col-md-12
+				if errors
+					each err in errors
+						.alert.alert-danger=err
+				form(action="/users/create" method="post" style="margin:0px auto;" enctype="multipart/form-data")
+					.form-group
+						label(for="email") email
+						input#email.form-control(type="email" name="email" value=values?values.email : '') 
+					.form-group
+						label(for="phone") phone number
+						input#phone.form-control(type="number" name="phone" value=values?values.phone : '') 
+					.form-group
+						label(for="name") name
+						input#name.form-control(type="text" name="name" value=values?values.name : '') 
+					.form-group
+						label(for="password") password
+						input#password.form-control(type="password" name="password" value=values?values.password : '') 
+					.form-group
+						label(for="confirm") confirm password
+						input#confirm.form-control(type="password" name="confirm" value=values?values.confirm : '') 
+					.form-group
+						label(for="avatar") avatar
+						input#avatar.form-control-file(type="file" name="avatar") 
+					.form-group
+						button.btn.btn-primary create
